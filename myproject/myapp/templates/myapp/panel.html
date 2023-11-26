@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel Klienta</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linki do hostowanych zasobów Bootstrap i jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'media/site.webmanifest' %}">
+</head>
+<body>
+    <div class="header-panel">
+        <div class="user-panel">
+            <div class="user-info">
+                <p>Witaj, {{ user.username }}</p>
+            </div>
+            <button class="toggle-mode dark" onclick="toggleDarkMode()">👨🏿</button>
+            <button class="toggle-mode light" onclick="toggleDarkMode()">👨🏻</button>
+            <div class="logout-button">
+                <form method="post" action="{% url 'myapp:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Wyloguj się</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <form method="post" enctype="multipart/form-data" action="{% url 'myapp:upload_image' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="przeslij" type="submit" value="Submit">Prześlij zdjęcie</button>
+        </form>
+        
+        <div class="row">
+            {% for image in images %}
+            <div class="col-md-4 sortable-image" data-image-id="{{ image.id }}">
+                
+                    <img src="{{ image.image.url }}" alt="Obraz">
+                
+                <form method="post" action="{% url 'myapp:delete_image' image.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger delete-button">Usuń</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="{% static 'js/sort.js' %}"></script>
+    <script src="{% static 'js/darkmode.js' %}"></script>
+</body>
+</html>

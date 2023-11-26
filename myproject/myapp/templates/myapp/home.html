@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projektowanie Aplikacji Internetowych Projekt</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'media/site.webmanifest' %}">
+</head>
+<body>
+    <h1 class="title">Projektowanie Aplikacji Internetowych - Projekt</h1>
+    <div class="login">
+        <img src="https://images.unsplash.com/photo-1484503793037-5c9644d6a80a?q=80&w=2265&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <a href="{% url 'myapp:login' %}" class="btn btn1">Zaloguj</a> 
+    </div>
+    <div class="register">
+        <img src="https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?q=80&w=2427&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <a href="{% url 'myapp:registration_view' %}" class="btn btn2">Zarejestruj</a>
+    </div>
+</body>
+</html>

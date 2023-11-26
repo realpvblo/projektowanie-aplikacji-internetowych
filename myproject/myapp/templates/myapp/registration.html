@@ -1,0 +1,112 @@
+{% load static %}
+
+<!-- registration.html -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/regiter.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{% static 'js/validation.js' %}"></script> 
+</head>
+<body>
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1468657988500-aca2be09f4c6?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+    <div class="register_form">
+        <h1>Rejestracja</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div id="error-message" style="color: red;"></div>
+            {{ form.as_p }}
+            <button class="btn btn1" type="submit">Zarejestruj</button>
+        </form>
+    </div>
+</body>
+</html> -->
+
+<!-- 1 ^^^ / 2 vvv -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rejestracja</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/regiter.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{% static 'js/validation.js' %}"></script> 
+</head>
+<body>
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1468657988500-aca2be09f4c6?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+    <div class="register_form">
+        <h2>Rejestracja</h2>
+            <form method="post" action="{% url 'myapp:registration_view' %}" id="registrationForm">
+                {% csrf_token %}
+                <div id="error-message" style="color: red;"></div>
+                <input type="text" name="username" id="username" required>
+                <br>
+                <input type="password" name="password" required>
+                <br>
+                <input type="password" name="confirm_password" required>
+                <br>
+                <button class="btn btn1" type="submit">Zarejestruj się</button>
+            </form>
+    </div>
+</body>
+</html> -->
+
+<!-- registration.html -->
+<!-- registration.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/regiter.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'media/site.webmanifest' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{% static 'js/validation.js' %}"></script> 
+</head>
+<body>
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1468657988500-aca2be09f4c6?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+    <div class="register_form">
+        <h1>Rejestracja</h1>
+        <!-- <form method="post" action="{% url 'myapp:registration_view' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label_tag }}
+                {{ form.confirm_password }}
+                {{ form.confirm_password.errors }}
+            </div>
+            <button class="btn btn1" type="submit">Zarejestruj</button>
+        </form> -->
+        <form method="post" action="{% url 'myapp:registration_view' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+            <button class="btn btn1" type="submit">Zarejestruj</button>
+        </form>
+    </div>
+</body>
+</html>

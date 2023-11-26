@@ -1,0 +1,32 @@
+
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'media/site.webmanifest' %}">
+</head>
+<body>
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?q=80&w=2371&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+    <div class="login_form">
+        <h1>Logowanie</h1>
+            <form method="post" action="{% url 'myapp:login' %}">
+                {% csrf_token %}
+                <label for="username">Nazwa użytkownika:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" name="password" required><br>
+                <button class="btn btn1" type="submit">Zaloguj</button>
+            </form>
+    </div>
+    
+</body>
+</html>
