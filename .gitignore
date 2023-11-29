@@ -23,4 +23,6 @@ db.sqlite3
 staticfiles/
 
 # Logs
-myproject/django.log
+django.log
+
+myproject/media/images/

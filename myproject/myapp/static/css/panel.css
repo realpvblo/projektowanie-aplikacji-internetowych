@@ -14,6 +14,12 @@
     .col-md-4 {
         flex: 0 0 50%;
         max-width: 250px;
+        max-height: 180px !important;
+    }
+
+    .col-md-4 img {
+        object-fit: cover;
+        max-height: 140px !important;
     }
 
     .row {

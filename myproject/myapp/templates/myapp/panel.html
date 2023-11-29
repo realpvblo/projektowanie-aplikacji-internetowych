@@ -20,8 +20,8 @@
             <div class="user-info">
                 <p>Witaj, {{ user.username }}</p>
             </div>
-            <button class="toggle-mode dark" onclick="toggleDarkMode()">👨🏿</button>
-            <button class="toggle-mode light" onclick="toggleDarkMode()">👨🏻</button>
+            <button class="toggle-mode dark" onclick="toggleDarkMode()">🌚</button>
+            <button class="toggle-mode light" onclick="toggleDarkMode()">🌞</button>
             <div class="logout-button">
                 <form method="post" action="{% url 'myapp:logout' %}">
                     {% csrf_token %}
